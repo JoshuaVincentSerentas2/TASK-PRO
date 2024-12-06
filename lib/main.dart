@@ -5,13 +5,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Removes the debug banner
       theme: ThemeData(
-        primaryColor: Color(0xFF003DA5), // Ateneo blue
-        textTheme: TextTheme(
+        primaryColor: const Color(0xFF003DA5), // Ateneo blue
+        textTheme: const TextTheme(
           bodyMedium: TextStyle( // Updated to bodyMedium
             fontFamily: 'Roboto',
             fontSize: 16,
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
 }
 
 class TaskManagerHome extends StatefulWidget {
+  const TaskManagerHome({super.key});
+
   @override
   _TaskManagerHomeState createState() => _TaskManagerHomeState();
 }
@@ -82,8 +86,8 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Task Manager', style: TextStyle(color: Colors.white)),
-        backgroundColor: Color(0xFF003DA5), // Ateneo blue
+        title: const Text('Task Manager', style: TextStyle(color: Colors.white)),
+        backgroundColor: const Color(0xFF003DA5), // Ateneo blue
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -92,7 +96,7 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
             // Form Container
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -108,7 +112,7 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Title
-                  Text(
+                  const Text(
                     'LIST THE DO!',
                     style: TextStyle(
                       color: Color(0xFF003DA5), // Ateneo blue
@@ -117,7 +121,7 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // Task Input Form
                   TextField(
@@ -125,36 +129,36 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                     decoration: InputDecoration(
                       hintText: 'Task Title',
                       filled: true,
-                      fillColor: Color(0xFFF9F9F9),
+                      fillColor: const Color(0xFFF9F9F9),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF003DA5)),
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextField(
                     controller: descriptionController,
                     decoration: InputDecoration(
                       hintText: 'Task Description',
                       filled: true,
-                      fillColor: Color(0xFFF9F9F9),
+                      fillColor: const Color(0xFFF9F9F9),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      focusedBorder: OutlineInputBorder(
+                      focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: Color(0xFF003DA5)),
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: addTask,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF003DA5), // Corrected to backgroundColor
-                      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      backgroundColor: const Color(0xFF003DA5), // Corrected to backgroundColor
+                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -164,7 +168,7 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Task List
             Expanded(
               child: ListView.builder(
@@ -172,15 +176,15 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 3,
-                    margin: EdgeInsets.symmetric(vertical: 8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: ListTile(
-                      contentPadding: EdgeInsets.all(15),
+                      contentPadding: const EdgeInsets.all(15),
                       title: Text(
                         tasks[index]['title'],
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
                       subtitle: Text(tasks[index]['description']),
                       trailing: Row(
@@ -195,11 +199,11 @@ class _TaskManagerHomeState extends State<TaskManagerHome> {
                             },
                           ),
                           IconButton(
-                            icon: Icon(Icons.edit, color: Colors.blue),
+                            icon: const Icon(Icons.edit, color: Colors.blue),
                             onPressed: () => editTask(index),
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete, color: Colors.red),
+                            icon: const Icon(Icons.delete, color: Colors.red),
                             onPressed: () => deleteTask(index),
                           ),
                         ],
